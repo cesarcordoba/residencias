@@ -1,0 +1,57 @@
+md-card
+	md-card-content(layout="row")
+		md-icon search
+		md-autocomplete(
+		flex
+		md-selected-item="ctrl.selectedTrabajadores" 
+		md-search-text-change="ctrl.BuscarTrabajadoresChange(ctrl.searchTextTrabajadores)" 
+		md-search-text="ctrl.searchTextTrabajadores" 
+		md-selected-item-change="ctrl.TrabajadoresSeleccionadoChange(item)" 
+		md-items="item in trabajadores" 
+		md-item-text="item.nombre" 
+		md-min-length="0" 
+		placeholder="Nombre del trabajador"
+		md-menu-class="autocomplete-custom-template")
+			md-item-template
+				span {{item.nombre}}
+		md-button.md-raised(md-colors="{background: 'green'}" ng-click="crearTrabajador()")
+			md-icon add
+
+	md-divider
+
+md-card
+	md-toolbar
+		.md-toolbar-tools
+			h4 Trabajadores
+	md-table-container
+		table(md-table md-row-select multiple)
+			thead(md-head)
+				tr(md-row)
+					th(md-column md-numeric md-order-by="trabajador.id")
+						md-icon fiber_manual_record
+						strong ID
+					th(md-column md-numeric)
+						md-icon person
+						strong Nombre
+					th(md-column md-numeric)
+						md-icon face
+						| Genero
+					th(md-column md-numeric)
+						md-icon credit_card
+						| No. Tarjeta
+					th(md-column md-numeric)
+						md-icon room
+						| Nacionalidad
+					th(md-column md-numeric)
+			tbody(md-body)
+				tr(md-row md-select="dato" md-select-id="name" md-auto-select ng-repeat="trabajador in trabajadores")
+					td(md-cell) {{trabajador.id }}
+					td(md-cell) {{trabajador.nombre }}
+					td(md-cell) {{trabajador.genero }}
+					td(md-cell) {{trabajador.num_tarjeta }}
+					td(md-cell) {{trabajador.nacionalidad }}
+					td(md-cell)
+						md-button(md-colors="{background: 'green'}" ui-sref="administrador.trabajador({id:trabajador.id})")
+							md-icon edit
+						md-button(md-colors="{background: 'red'}" ng-click="eliminarTrabajador(trabajador,$index)")
+							md-icon delete

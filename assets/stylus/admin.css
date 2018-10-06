@@ -1,0 +1,173 @@
+.croppie-container {
+  max-height: 40%;
+  width: 100%;
+}
+.dropify-container .dropify-wrapper {
+  width: 32vw;
+}
+.trabajador .descripcion-container text-angular .ta-toolbar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.trabajador .descripcion-container text-angular .ta-toolbar .ta-button-group button md-icon {
+  color: #009688;
+}
+.trabajador .md-button span {
+  font-size: 1.3vw;
+}
+.tercero {
+  width: 60%;
+}
+.tercero .imagen .imagen-container .croppie-container {
+  max-height: 40%;
+  width: 100%;
+}
+.tercero .imagen .imagen-container .dropify-container .dropify-wrapper {
+  width: 32vw;
+}
+.tercero .imagen-button {
+  margin-top: 11vh;
+  margin-left: 14vw;
+  background: #009688;
+}
+.tercero img {
+  heightv: 40vh;
+  width: 20vw;
+  margin-left: 9vw;
+}
+.contenedor-horarios .horarios-container .horarios-content .md-button {
+  height: 30px;
+  margin-top: 26px;
+}
+.contenedor-horarios .departamentos-container .departamento-content .md-button {
+  height: 30px;
+  margin-top: 26px;
+}
+.departamento h4 {
+  font-size: 2.5vw;
+}
+.departamento .departamento-container {
+  display: flex;
+  flex-direction: row;
+}
+.departamento .departamento-container .departamento-content .img-deptos {
+  height: 64vh;
+  width: 41vw;
+}
+.departamento .departamento-container .departamento-content p {
+  font-size: 2vw;
+}
+.departamento .departamento-container .descripcion-content {
+  margin: 0 3vw;
+}
+.departamento .departamento-container .descripcion-content h1 {
+  font-size: 3vw;
+}
+.departamento .departamento-container .descripcion-content p {
+  font-size: 2vw;
+  text-align: justify;
+}
+.horarios h4 {
+  font-size: 2.5vw;
+}
+.horarios .horarios-container {
+  display: flex;
+  flex-direction: row;
+  justify: center;
+}
+.horarios .horarios-container .horarios-content {
+  border: 1px solid;
+  width: 50%;
+}
+.horarios .horarios-container .horarios-content md-list md-list-item strong {
+  font-size: 2vw;
+  margin-left: 15vw;
+}
+.horarios .horarios-container .horarios-content .titulo h1 {
+  font-size: 2.5vw;
+  margin-left: 8vw;
+}
+.horarios .horarios-container .horarios-content .titulo .md-button {
+  height: 0 !important;
+  margin: 2vw;
+}
+.horarios .horarios-container .turnos-content {
+  border: 1px solid;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+.horarios .horarios-container .turnos-content h1 {
+  font-size: 2.5vw;
+  text-align: center;
+}
+.horarios .horarios-container .turnos-content md-list md-list-item strong {
+  font-size: 2vw;
+  text-align: center;
+  margin-left: 18vw;
+}
+.reloj-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.reloj-container .reloj-checador {
+  width: 800px;
+  height: 650px;
+}
+.reloj-container .reloj-checador img {
+  width: 100%;
+  height: 100%;
+}
+.reloj-container .pantalla {
+  position: absolute;
+  background-color: #205ed9;
+  width: 267px;
+  height: 246px;
+  border-radius: 20px;
+  left: 401px;
+  top: 103px;
+}
+.reloj-container .pantalla .titulo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.reloj-container .pantalla .titulo p {
+  margin: 0;
+}
+.reloj-container .pantalla .cargar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.reloj-container .lector {
+  position: absolute;
+  left: 787px;
+  top: 276px;
+}
+.reloj-container .lector .dropify-container {
+  width: 145px;
+}
+.reloj-container .lector .dropify-container .dropify-wrapper {
+  height: 235px;
+}
+.reloj-container .lector .boton-container {
+  width: 169px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.reloj-container .lector .boton-container .imagen-button {
+  background-color: #01fab9;
+}
+.ta-scroll-window > .ta-bind {
+  height: 180px;
+  min-height: inherit;
+  padding: 6px 12px;
+}

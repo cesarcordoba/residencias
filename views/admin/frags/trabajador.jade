@@ -1,0 +1,100 @@
+md-card
+	md-toolbar
+		.md-toolbar-tools
+			h4 Información Básica del Trabajador {{trabajador.id}}
+md-card
+	md-card-content(layout="row")
+		form.trabajador(ng-submit="editarTrabajador(trabajador)" layout="column")
+			.info-content(layout="row")
+				.info-container(layout="column" style="width: 100%")
+					.primero(layout="row")
+						md-input-container(flex)
+							label Nombre
+							input(ng-model="trabajador.nombre" required) 
+						md-input-container(flex)
+							label Genero
+							input(ng-model="trabajador.genero" required)
+						md-input-container(flex)
+							label Nacionalidad
+							input(ng-model="trabajador.nacionalidad" required)
+						md-input-container(flex)
+							label Telefono Oficina
+							input(ng-model="trabajador.telefono" required)
+					.segundo(layout="row")
+						md-input-container(flex)
+							label Fecha de Nacimiento
+							md-datepicker(ng-model="trabajador.fecha_nacimiento" required)
+						md-input-container(flex)
+							label Fecha de Empleo
+							md-datepicker(ng-model="trabajador.fecha_empleo" required)
+						md-input-container(flex)
+							label Número de Tarjeta
+							input(ng-model="trabajador.num_tarjeta" required)
+						md-input-container(flex)
+							label Número de Celular
+							input(ng-model="trabajador.celular" required)
+			.descripcion-container
+				.titulo(layout="row")
+					p Dirección
+				text-angular(ng-model="trabajador.direccion")
+			md-button(type="submit" md-colors="{background: 'green'}")
+				|Guardar Información
+		.tercero
+			form.imagen(ng-submit="guardarImagen(imagen)" ng-if="mostrar===false")
+				.imagen-container(layout-align="center center")
+					.dropify-container(ng-init="Dropify()" flex ng-hide="inputImage")
+						input.dropify(type="file" data-default-file="Imagen del Trabajador" ng-model="imagen.imagen" base-sixty-four-input maxsize="54836" data-max-file-size="9000K" accept="image/*" style="padding:0px;")
+					.croppie-container(flex ng-show="inputImage")
+						ng-croppie(src="inputImage"
+							ng-model='imagen.imagen'
+							boundry="{ w: 250, h: 250 }"
+							viewport="{w: 200, h: 200}"
+							mousezoom="true" 
+							zoom="true" 
+							orientation="90"
+							type="rectangle")
+				md-button.imagen-button(type="submit" flex)
+					md-icon save
+			img(src="{{imagensita}}" ng-if="mostrar===true")
+.contenedor-horarios(layout="row")
+	.horarios-container(flex="50")
+		md-card
+			md-toolbar
+				.md-toolbar-tools
+					h4 Horarios y Turnos
+					span(flex)
+					md-button(ng-click="desplegar()")
+						md-icon(ng-if = "abrir") clear
+						md-icon(ng-show = "!abrir") add
+			.horarios-content(layout="row" ng-if="abrir")
+				.horarios(flex="50")
+					label Horario
+					md-select(ng-model="horario.id" required)
+						md-option(ng-value="horario.id" ng-repeat="horario in horarios") {{horario.horario}}
+				.turnos(flex="50")
+					label Turno
+					md-select(ng-model="turno.id" required)
+						md-option(ng-value="turno.id" ng-repeat="turno in turnos") {{turno.nombre}}
+				md-button(type="submit" md-colors="{background: 'green'}")
+					md-icon save
+			
+	.departamentos-container(flex="50")
+		md-card
+			md-toolbar
+				.md-toolbar-tools
+					h4 Departamento y Rol
+					span(flex)
+					md-button(ng-click="desplegar2()")
+						md-icon(ng-if = "abrir2") clear
+						md-icon(ng-show = "!abrir2") add
+			.departamento-content(layout="row" ng-if="abrir2")
+				.departamento(flex="50")
+					label Departamentos
+					md-select(ng-model="departamento.id" required)
+						md-option(ng-value="departamento.id" ng-repeat="departamento in departamentos") {{departamento.nombre}}
+				.roles(flex="50")
+					label Roles
+					md-select(ng-model="rol.id" required)
+						md-option(ng-value="rol.id" ng-repeat="rol in roles") {{rol.nombre}}
+				md-button(type="submit" md-colors="{background: 'green'}")
+					md-icon save		

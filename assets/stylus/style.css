@@ -1,0 +1,15 @@
+header {
+  height: 100px;
+}
+header .menu {
+  display: inline-flex;
+}
+header .menu .navbutton {
+  padding: 12px;
+}
+.centro {
+  min-height: calc(100vh - 150px);
+}
+md-dialog {
+  width: 50vw;
+}

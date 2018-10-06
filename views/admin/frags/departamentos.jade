@@ -1,0 +1,39 @@
+md-card
+	md-card-content(layout="row")
+		md-icon search
+		md-autocomplete(
+		flex
+		md-selected-item="ctrl.selectedDepartamento" 
+		md-search-text-change="ctrl.BuscarDepartamentoChange(ctrl.searchTextDepartamento)" 
+		md-search-text="ctrl.searchTextDepartamento" 
+		md-selected-item-change="ctrl.DepartamentoSeleccionadoChange(item)" 
+		md-items="item in departamentos" 
+		md-item-text="item.nombre" 
+		md-min-length="0" 
+		placeholder="Nombre del Departamento" 
+		md-menu-class="autocomplete-custom-template")
+			md-item-template
+				span {{item.nombre}}
+	md-divider
+	md-list
+		md-list-item(ng-repeat="departamento in ctrl.departamentos.departamentos | filter : ctrl.searchTextDepartamento")
+			img.md-avatar(src="img/deptos.jpg")
+			.md-list-item-text
+				strong {{departamento.nombre}}
+			md-fab-toolbar(md-open="false" count="0"  md-direction="left" flex)
+				md-fab-trigger
+					md-button
+						md-icon more_vert
+				md-toolbar
+					md-fab-actions(layout="row")
+						md-button(md-colors="{background: 'green'}" ui-sref="administrador.departamento({id:departamento.id})")
+							md-icon edit
+						md-button(md-colors="{background: 'red'}" ng-click="departamento.eliminar($index)")
+							md-icon delete
+			md-divider
+	h3(style="text-align: center") Pagina: {{ctrl.departamentos.pagina}}
+	.paginacion(layout="row")
+		md-button(ng-click="ctrl.departamentos.anterior()" ng-if="ctrl.departamentos.pagina !==1" flex)
+			md-icon navigate_before
+		md-button(ng-click="ctrl.departamentos.siguiente()" ng-if="ctrl.departamentos.pagina === ctrl.departamentos.pagina" flex)
+			md-icon navigate_next

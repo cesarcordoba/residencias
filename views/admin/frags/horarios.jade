@@ -1,0 +1,22 @@
+md-card.horarios
+	md-toolbar
+		.md-toolbar-tools
+			h4 Horarios y Turnos
+	md-card-content
+		.horarios-container
+			.horarios-content
+				.titulo(layout="row")
+					h1 Horarios disponibles
+					span(flex)
+					md-button(md-colors="{background: 'green'}" ng-click="nuevoHorario()")
+						md-icon add
+				md-list
+					md-list-item(ng-repeat="horario in horarios")
+						strong {{horario.horario}}
+						md-divider
+			.turnos-content
+				h1 Turnos
+				md-list
+					md-list-item(ng-repeat="turno in turnos")
+						strong {{turno.nombre}}
+						md-divider
