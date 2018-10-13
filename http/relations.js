@@ -10,6 +10,7 @@ var roles = require('./db/modeloRoles')(conector);
 var imagenes = require('./db/modeloImagenes')(conector);
 var trabajadores = require('./db/modeloTrabajadores')(conector);
 var turnos = require('./db/modeloTurnos')(conector);
+var asistentes = require('./db/modeloAsistentes')(conector);
 
 //- Relations
 
@@ -38,4 +39,4 @@ module.exports.roles = roles;
 module.exports.imagenes = imagenes;
 module.exports.trabajadores = trabajadores;
 module.exports.turnos = turnos;
-
+module.exports.asistentes = asistentes;

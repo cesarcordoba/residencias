@@ -21,6 +21,16 @@ app.service('Departamentos', function() {
 
 });
 
+app.service('Asistentes', function() {
+
+    this.crear = function(asistentes) { return axios.post('/data/asistentes', asistentes) }
+    this.obtener = function() { return axios('/data/asistentes/' ) }
+    this.editar = function(asistentes) { return axios.put('/data/asistentes/' + asistentes.id, asistentes) }
+    this.one = function(id) { return axios('/data/asistentes/' + id) }
+    this.eliminar = function(id) { return axios.delete('/data/asistentes/' + id) }
+
+
+});
 
 app.service('Horarios', function() {
 

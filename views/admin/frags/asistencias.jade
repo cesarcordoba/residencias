@@ -1,1 +1,41 @@
-p asistencias
+md-card
+	md-toolbar
+		.md-toolbar-tools
+			h4 Prospectos
+	md-card-content(layout="row")
+		md-icon search
+		md-autocomplete(
+		flex
+		md-selected-item="ctrl.selectedAsistentes" 
+		md-search-text-change="ctrl.BuscarAsistentesChange(ctrl.searchTextAsistentes)" 
+		md-search-text="ctrl.searchTextAsistentes" 
+		md-selected-item-change="ctrl.AsistentesSeleccionadoChange(item)" 
+		md-items="item in asistentes" 
+		md-item-text="item.nombre" 
+		md-min-length="0" 
+		placeholder="Buscar..."
+		md-menu-class="autocomplete-custom-template")
+			md-item-template
+				span {{item.nombre}}
+	md-table-container
+		table(md-table md-row-select multiple)
+			thead(md-head)
+				tr(md-row)
+					th(md-column md-numeric)
+						md-icon person
+						strong Nombre
+					th(md-column md-numeric)
+						md-icon mail
+						| Hora de entrada
+					th(md-column md-numeric)
+						md-icon mail
+						| Hora de salida
+			tbody(md-body)
+				tr(ng-repeat="asistente in asistentes")
+					td(md-cell) {{asistente.nombre}}
+					td(md-cell) {{asistente.horaLlegada }}
+					td(md-cell) {{asistente.horaSalida }}
+					//-td(md-cell)
+						//-md-button(md-colors="{background:'red'}" ng-click="eliminarProspecto($index, prospecto)")
+							//-md-icon delete
+		md-table-pagination(md-page-select)

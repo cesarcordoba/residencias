@@ -43,6 +43,7 @@ app.use('/', require('./http/routes/routeImagenes'));
 app.use('/', require('./http/routes/routeRoles'));
 app.use('/', require('./http/routes/routeTrabajadores'));
 app.use('/', require('./http/routes/routeTurnos'));
+app.use('/', require('./http/routes/routeAsistentes'));
 
 
 app.use(lessMiddleware(__dirname + '/assets'));

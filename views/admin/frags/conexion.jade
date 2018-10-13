@@ -9,7 +9,7 @@ md-card-content
 			.titulo
 				p(style="font-size: 13px;") lector de huellas
 				p(style="font-size: 25px; color: red; font-weight:600;") TresGuerras
-			.nombre(ng-if="ctrl.mostrarInfo===true")
+			.nombre(ng-if="ctrl.mostrarInfo === true")
 				h4 Bienvenido: {{trabajador.nombre}}
 				h2 Hora de Entrada: {{horas}}:{{minutos}}:{{segundos}}
 			.cargar(ng-if="ctrl.cargarLoader===true")
@@ -25,3 +25,6 @@ md-card-content
 				.boton-container
 					md-button.imagen-button(type="submit" flex)
 						md-icon save
+				.boton-container
+					md-button.imagen-button(flex style="background-color: brown;" ng-click="ctrl.imagenes.limpiar()")
+						| Limpiar

@@ -1,6 +1,6 @@
 var app = angular.module('myapp');
 
-app.controller('conexionCtrl', function($scope, $rootScope, $http, mdDialog, Imagenes, Trabajadores, alertas) {
+app.controller('conexionCtrl', function($scope, $rootScope, $http, mdDialog, Imagenes, Trabajadores, alertas, Asistentes) {
 
 
 	Imagenes.obtener()
@@ -17,6 +17,7 @@ app.controller('conexionCtrl', function($scope, $rootScope, $http, mdDialog, Ima
 	var self = this;
 	self.cargarLoader = false;
 	self.mostrarInfo = false;
+	self.verificar = 1;
 
 	class Imagenes_{
 
@@ -38,7 +39,17 @@ app.controller('conexionCtrl', function($scope, $rootScope, $http, mdDialog, Ima
 		                $scope.trabajador = res.data;
 		                $scope.$digest();
 		                console.log($scope.trabajador);
+						if(self.verificar === 1){
+							let obj = {nombre: $scope.trabajador.nombre, horaLlegada: 	$scope.horas+ " : "+$scope.minutos+ " hrs."}
+							Asistentes.crear(obj).then(response => console.log(response.data))
+							self.verificar = 2;
+						}else{
+							let obj = {id:$scope.trabajador.id, horaSalida: 	$scope.horas+ " : "+$scope.minutos+ " hrs."}
+							Asistentes.editar(obj).then(response => console.log(response.data))
+						}
+
 		            })
+
 					self.mostrarInfo = true;
 	                console.log("si existe");
 		        }else{
@@ -47,6 +58,10 @@ app.controller('conexionCtrl', function($scope, $rootScope, $http, mdDialog, Ima
 		        }
 		    })
 
+		}
+
+		limpiar(){
+			self.mostrarInfo = false;
 		}
 
 		resetDropify() {
