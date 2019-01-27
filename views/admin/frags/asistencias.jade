@@ -26,15 +26,11 @@ md-card
 						strong Nombre
 					th(md-column md-numeric)
 						md-icon mail
-						| Hora de entrada
-					th(md-column md-numeric)
-						md-icon mail
-						| Hora de salida
+						| Hora de chequeo
 			tbody(md-body)
 				tr(ng-repeat="asistente in asistentes")
 					td(md-cell) {{asistente.nombre}}
 					td(md-cell) {{asistente.horaLlegada }}
-					td(md-cell) {{asistente.horaSalida }}
 					//-td(md-cell)
 						//-md-button(md-colors="{background:'red'}" ng-click="eliminarProspecto($index, prospecto)")
 							//-md-icon delete
